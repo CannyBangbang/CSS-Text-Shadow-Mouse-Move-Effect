@@ -1,0 +1,13 @@
+h1 {
+  font-family: 'Monoton', cursive;
+  font-size: 100px;
+  color: blue;
+  text-shadow: 10px 10px 2px black;
+  text-align: center;
+}
+main-div {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  min-height: 100vh;
+}

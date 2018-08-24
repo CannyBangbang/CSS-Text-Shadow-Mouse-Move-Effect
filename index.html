@@ -3,13 +3,37 @@
 
 <head>
   <meta charset="UTF-8">
-  <title></title>
+  <title>CSS Text Shadow Mouse Move Effect</title>
+  <link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+  <div class="main-div">
+    <h1>Crazy Text Effect</h1>
+  </div>
+
   <script>
+    const mainDiv = document.querySelector('.main-div');
+    const mainText = mainDiv.querySelector('h1');
+    const shadowLength = 50;
+
+    function shadow(e) {
+      const width = mainDiv.offsetWidth;
+      const height = mainDiv.offsetHeight;
+      let x = e.offsetX;
+      let y = e.offsetY;
+      if (this !== e.target) {
+        x = x + e.target.offsetLeft;
+        y = y + e.target.offsetTop;
+      }
+      const xShadow = Math.round((x / width * shadowLength) - (shadowLength / 2)); // these 2 lines make it spread between positive and negative ranges
+      const yShadow = Math.round((y / height * shadowLength) - (shadowLength / 2));
+      mainText.style.textShadow = `${xShadow}px ${yShadow}px 2px black`;
+    }
+
+    mainDiv.addEventListener('mousemove', shadow);
   </script>
 </body>
 
